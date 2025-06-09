@@ -1,0 +1,113 @@
+# HR Peers
+
+HR Peers is a professional networking platform, similar to LinkedIn, built with the MERN stack. It allows users to connect with peers, share updates, and manage their professional profiles.
+
+## Description
+
+This project is a full-stack web application that includes features like user authentication (including OAuth with LinkedIn), posting updates, following other users, real-time chat, and profile management.
+
+## Tech Stack
+
+- **Frontend:** React, Vite, CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Real-time Communication:** Socket.IO
+
+## Working API Endpoints
+
+### Authentication
+
+| Method | Path                       | Description                                  |
+|--------|----------------------------|----------------------------------------------|
+| POST   | `/api/auth/register`       | Register a new user.                         |
+| POST   | `/api/auth/login`          | Log in an existing user.                     |
+| GET    | `/api/auth/linkedin`       | Initiate LinkedIn OAuth authentication.      |
+| GET    | `/api/auth/linkedin/callback` | Callback for LinkedIn OAuth authentication. |
+
+### Users
+
+| Method | Path                | Description                                          |
+|--------|---------------------|------------------------------------------------------|
+| GET    | `/api/users`        | Get a list of all users for the chat list.           |
+| GET    | `/api/users/online` | Get a list of currently online users.                |
+
+### Messages
+
+| Method | Path                         | Description                                  |
+|--------|------------------------------|----------------------------------------------|
+| GET    | `/api/messages/:chatId/:chatType` | Get chat history for a direct or group chat. |
+
+## Setup Instructions
+
+### Backend
+
+1.  Navigate to the `backend` directory:
+    ```bash
+    cd my-pwa-app/backend
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Create a `.env` file in the `backend` directory and add the following environment variables:
+    ```
+    PORT=5000
+    MONGO_URI=your_mongodb_connection_string
+    JWT_SECRET=your_jwt_secret
+    LINKEDIN_CLIENT_ID=your_linkedin_client_id
+    LINKEDIN_CLIENT_SECRET=your_linkedin_client_secret
+    ```
+
+### Frontend
+
+1.  Navigate to the `frontend` directory:
+    ```bash
+    cd my-pwa-app/frontend
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+## How to Run the Project
+
+1.  **Start the backend server:**
+    From the `my-pwa-app/backend` directory, run:
+    ```bash
+    npm start
+    ```
+2.  **Start the frontend development server:**
+    From the `my-pwa-app/frontend` directory, run:
+    ```bash
+    npm run dev
+    ```
+3.  Open your browser and navigate to `http://localhost:5173`.
+
+## Folder Structure (Optional)
+
+```
+my-pwa-app/
+├── backend/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── socket/
+│   ├── .env
+│   ├── index.js
+│   └── package.json
+└── frontend/
+    ├── public/
+    ├── src/
+    │   ├── assets/
+    │   ├── auth/
+    │   ├── bg/
+    │   ├── styles/
+    │   ├── App.jsx
+    │   ├── main.jsx
+    │   └── index.css
+    ├── .gitignore
+    ├── index.html
+    └── package.json
+```
+
